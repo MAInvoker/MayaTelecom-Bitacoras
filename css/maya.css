@@ -1,0 +1,21 @@
+/* public css for MayaTelecom*/
+
+.maya_logbook_container div{
+	margin-top: 5px;
+}
+
+.maya_logbook_container strong{
+	margin-right: 10px;
+	min-width: 170px;
+}
+
+.maya_logbook_container input[type="text"], select{
+	width: 300px;
+}
+
+.maya_logbook_container textarea{
+	max-width: 550px;
+	max-height: 200px;
+	min-width: 550px;
+	min-height: 200px;
+}

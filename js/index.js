@@ -10,6 +10,10 @@
 
 #admin-menu: menu derecho de dashboard para admins
 
+#container_body: div en donde se cargaran todos los demas scripts visuales
+
+#header_name: nombre del soporte tecnico que aparece en el header
+
 /*****************************************************************************/
 
 $( document ).ready(function() {
@@ -30,6 +34,7 @@ function getSessionType(){
 				
 				//mostrando menu
 				$("#support-menu").show();
+				setHeaderName(json_response.response.user_name);
 				getBitacoraForm();
 			}else if(json_response.response.type == 1){
 
@@ -43,7 +48,25 @@ function getSessionType(){
     });
 }
 
+function setHeaderName(name){
+	var split_name = name.split(" ");
+		$("#header_name").text(split_name[0]);
+}
+
 function getBitacoraForm(){
 	//ponendo el titulo
 	$("#header_title").html('<i class="fa fa-dashboard"></i> Crear Bitácora');
+
+	$.ajax(
+      {
+        url: "core/LogbookForm.php",
+        type: "GET",
+        success: function(data){
+        	//console.log(data);
+        	$("#container_body").append(data);
+        },
+        error: function(data){
+          	
+        },
+    });
 }
