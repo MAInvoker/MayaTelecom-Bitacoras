@@ -30,16 +30,16 @@ function getSessionType(){
         success: function(data){
         	console.log(data);
         	var json_response = JSON.parse(data);
-			if(json_response.response.type == 0){
+			if(json_response.response.type == 1){
 				
 				//mostrando menu
 				$("#support-menu").show();
 				setHeaderName(json_response.response.user_name);
 				getBitacoraForm();
-			}else if(json_response.response.type == 1){
-
+			}else if(json_response.response.type == 0){
 				//mostrando menu
 				$("#admin-menu").show();
+                setHeaderName(json_response.response.user_name);
 			}
         },
         error: function(data){

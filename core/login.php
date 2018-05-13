@@ -17,7 +17,6 @@
 				}
 				$resultado->close();
 			}
-			$mysqli->close();
  
  			$type = "SELECT privilege FROM login WHERE username='$loginNombre'";
  			

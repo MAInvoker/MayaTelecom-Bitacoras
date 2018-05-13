@@ -1,4 +1,5 @@
 <?php
+/*inicia la sesion si no hay te regresa al index.php*/
   session_start();
   if($_SESSION["logueado"] == TRUE) {
 ?>
@@ -44,6 +45,7 @@ html,body,h1,h2,h3,h4,h5,strong,select {font-family: "Raleway", sans-serif}
     <!-- Admin -->
     <div id="admin-menu" style="display: none;">
         <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-power-off fa-fw"></i>  Ver Bitácoras</a>
+        <a href="salir.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-power-off fa-fw"></i>  Cerrar Sesión</a>
     </div>
     <br><br>
   </div>

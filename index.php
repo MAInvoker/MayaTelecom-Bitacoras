@@ -89,3 +89,7 @@ if(isset($_GET["error"]) && $_GET["error"] != "login") {
 
 </body>
 </html>
+<?php
+header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found", true, 404);
+include("error.html");
+?>
