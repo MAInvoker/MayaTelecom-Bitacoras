@@ -3,7 +3,6 @@
 if(isset($_GET["error"]) && $_GET["error"] != "login") {
 		header("Location: index.php");
 	}
- 
  ?>
  
  <!DOCTYPE html>
@@ -89,7 +88,3 @@ if(isset($_GET["error"]) && $_GET["error"] != "login") {
 
 </body>
 </html>
-<?php
-header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found", true, 404);
-include("error.html");
-?>
