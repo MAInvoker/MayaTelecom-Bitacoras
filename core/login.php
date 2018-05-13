@@ -35,8 +35,8 @@
  
 					session_start();
 					$_SESSION["logueado"] = TRUE;
-					$_SESSION["type"] = $typeok;
-					$_SESSION["user"] = $loginNombre;
+					$_SESSION['type'] = $typeok;
+					$_SESSION['support_name'] = $loginNombre;
 					header("Location: admin.php");
  
 				}
@@ -47,7 +47,7 @@
 			}
  
 		} else {
-			header("Location: index.php");
+			header("Location: ../index.php");
 		}
  
  ?>

@@ -1,7 +1,6 @@
 <?php
   session_start();
   if($_SESSION["logueado"] == TRUE) {
-    $user = $_SESSION["user"];
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +11,6 @@
 <link rel="stylesheet" href="../css/w3.css">
 <link rel="stylesheet" href="../ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/maya.css">
-<link rel="stylesheet" href="../css/bootbox.min.css">
 <style>
 html,body,h1,h2,h3,h4,h5,strong,select {font-family: "Raleway", sans-serif}
 </style>
@@ -31,7 +29,7 @@ html,body,h1,h2,h3,h4,h5,strong,select {font-family: "Raleway", sans-serif}
       <img src="../images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8 w3-bar">
-      <span>Bienvenido,  <strong id="header_name"> <?php echo $user; ?> </strong></span><br>
+      <span>Bienvenido,  <strong id="header_name"> - </strong></span><br>
     </div>
   </div>
   <hr>

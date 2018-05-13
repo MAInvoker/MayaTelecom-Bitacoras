@@ -25,7 +25,7 @@ $( document ).ready(function() {
 function getSessionType(){
 	$.ajax(
       {
-        url: "core/GetSessionType.php",
+        url: "GetSessionType.php",
         type: "GET",
         success: function(data){
         	console.log(data);
@@ -59,7 +59,7 @@ function getBitacoraForm(){
 
 	$.ajax(
       {
-        url: "core/LogbookForm.php",
+        url: "LogbookForm.php",
         type: "GET",
         success: function(data){
         	//console.log(data);
