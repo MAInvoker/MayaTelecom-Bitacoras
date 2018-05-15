@@ -34,11 +34,13 @@ function getSessionType(){
 				
 				//mostrando menu
 				$("#support-menu").show();
+				console.log("support "+json_response.response.type);
 				setHeaderName(json_response.response.user_name);
 				getBitacoraForm();
 			}else if(json_response.response.type == 0){
 				//mostrando menu
 				$("#admin-menu").show();
+				console.log("admin "+json_response.response.type);
                 setHeaderName(json_response.response.user_name);
 			}
         },
@@ -60,6 +62,24 @@ function getBitacoraForm(){
 	$.ajax(
       {
         url: "LogbookForm.php",
+        type: "GET",
+        success: function(data){
+        	//console.log(data);
+        	$("#container_body").append(data);
+        },
+        error: function(data){
+          	
+        },
+    });
+}
+
+function getCategoriesPage(){
+	//ponendo el titulo
+	$("#header_title").html('<i class="fa fa-dashboard"></i> Añadir Categoría');
+
+	$.ajax(
+      {
+        url: "GetCategoriesPage.php",
         type: "GET",
         success: function(data){
         	//console.log(data);
