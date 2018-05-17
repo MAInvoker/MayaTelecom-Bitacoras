@@ -14,7 +14,7 @@ if($mysqli->connect_errno) {
     echo "Error: " . $mysqli->connect_error . "\n";
     exit;
 }
- 
+$mysqli->query("SET NAMES 'utf8'");
 return $mysqli;
  
  ?> 

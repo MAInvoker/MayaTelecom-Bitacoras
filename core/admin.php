@@ -44,8 +44,8 @@ html,body,h1,h2,h3,h4,h5,strong,select {font-family: "Raleway", sans-serif}
     </div>
     <!-- Admin -->
     <div id="admin-menu" style="display: none;">
-        <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  Ver Bitácoras</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding" onclick="getCategoriesPage();"><i class="fa fa-edit fa-fw"></i>  Añadir Categorías</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding" ><i class="fa fa-history fa-fw"></i>  Ver Bitácoras</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding" onclick="getCategoriesPage();"><i class="fa fa-edit fa-fw"></i>  Categorías Soporte Técnico</a>
         <a href="salir.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-power-off fa-fw"></i>  Cerrar Sesión</a>
     </div>
     <br><br>
@@ -62,7 +62,7 @@ html,body,h1,h2,h3,h4,h5,strong,select {font-family: "Raleway", sans-serif}
   <!-- Header -->
   <hr>
   <header class="w3-container" style="/*padding-top:30px*/">
-    <h5><b id="header_title"><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
+    <h5><b id="header_title"><i class="fa fa-dashboard"></i> - </b></h5>
   </header>
   <div class="w3-container" id="container_body">
     

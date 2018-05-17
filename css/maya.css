@@ -19,3 +19,20 @@
 	min-width: 550px;
 	min-height: 200px;
 }
+
+.maya_table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  display: table;
+  font-size: 18px;
+  font-family: Helvetica;
+}
+
+.maya_table tr:nth-child(even) {
+  background: #eee;
+}
+
+.maya_table input[type=checkbox]{
+  margin-left: 10px;
+}

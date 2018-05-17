@@ -65,6 +65,7 @@ function getBitacoraForm(){
         type: "GET",
         success: function(data){
         	//console.log(data);
+        	$("#container_body").empty();
         	$("#container_body").append(data);
         },
         error: function(data){
@@ -83,10 +84,25 @@ function getCategoriesPage(){
         type: "GET",
         success: function(data){
         	//console.log(data);
+        	$("#container_body").empty();
         	$("#container_body").append(data);
         },
         error: function(data){
           	
         },
     });
+}
+
+function showAddCatForm(){
+	if( $("#cat_list_container").is(':visible') ){
+		$("#add_cat_title_btn").text("Cancelar");
+		$("#edit_cat_title_btn").hide();
+		$("#delete_cat_title_btn").hide();
+	}else{
+		$("#add_cat_title_btn").text("Agregar nueva Categoría");
+		$("#edit_cat_title_btn").show();
+		$("#delete_cat_title_btn").show();
+	}
+	$("#cat_list_container").toggle();
+	$("#cat_form_container").toggle();
 }
