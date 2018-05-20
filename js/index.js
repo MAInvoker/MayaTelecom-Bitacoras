@@ -18,9 +18,8 @@
 
 $( document ).ready(function() {
     console.log( "ready!" );
-    getSessionType();
+    getSessionType();    
 });
-
 
 function getSessionType(){
 	$.ajax(
@@ -103,10 +102,8 @@ function getNodoSelect(){
           //console.log(data);
           $("#container_select_nodo").empty();
           $("#container_select_nodo").append(data);
-
         },
-        error: function(data){
-            
+        error: function(data){  
         },
     }); 
 }
@@ -204,7 +201,7 @@ function saveCategory(){
 }
 
 function saveBitacora(){
-  if( $("#phone_client").val() != "" && $("#asunto").val() != "" && $("#resumen_text").val() != ""){
+  if( $("#phone_client").val() != "" && $("#asunto").val() != "" && $("#resumen_text").val() != "" && $("#select_nodo").val() != "" && $("#select_categoria").val() != ""){
     $.ajax(
       {
           url: "SaveBitacora.php",
@@ -212,7 +209,11 @@ function saveBitacora(){
           type: "POST",
           success: function(data){
             console.log("valor devuelto: "+data);
-            $("#nombre").val("");
+             $("#select_nodo").val("");
+             $("#select_categoria").val("");
+             $("#phone_numbers_client").val("");
+             $("#asunto").val("");
+             $("#resumen_text").val("");
             if(data == 1 ){
               bootbox.alert({
                 message: "Categoría guardada satisfactoriamente",
@@ -226,7 +227,6 @@ function saveBitacora(){
             }
           },
           error: function(data){
-              
           },
       });
   }else{

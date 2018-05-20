@@ -6,11 +6,11 @@ $data = array();
 	if($resultado = $mysqli->query($consulta)) {
 		?>
 			<select class="form-control" id="select_nodo" name="select_nodo">
-				<option id="optn-0">--Selecciona un Nodo--</option>
+				<option value="">--Selecciona un Nodo--</option>
 		<?php
 		while($row = $resultado->fetch_assoc()) {
 			?>
-				<option id="optn-<?php echo $row['id']; ?>"><?php echo $row['nodo']; ?></option>
+				<option value="<?php echo $row['nodo']; ?>"><?php echo $row['nodo']; ?></option>
 			<?php
 		}
 		?>

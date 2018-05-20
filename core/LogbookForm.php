@@ -67,7 +67,6 @@ $data = array();
 			<strong>Resumen: </stron><br>
 			<textarea class="form-control" id="resumen_text" name="resumen_text"></textarea>
 		</div>
-
 		<div class="form-group">
 			<input style="margin-top: 20px;" type="button" class="maya_button w3-green" value="Guardar" onclick="saveBitacora();">
 		</div>
