@@ -7,7 +7,7 @@
 			$loginNombre = $_POST["usuario"];
 			$loginPassword = md5($_POST["password"]);
  
-			$consulta = "SELECT * FROM login WHERE username='$loginNombre' AND password='$loginPassword'";
+			$consulta = "SELECT * FROM ".DB_NAME.".login WHERE username='$loginNombre' AND password='$loginPassword'";
 			
 			if($resultado = $mysqli->query($consulta)) {
 				while($row = $resultado->fetch_array()) {
@@ -18,7 +18,7 @@
 				$resultado->close();
 			}
  
- 			$type = "SELECT privilege FROM login WHERE username='$loginNombre'";
+ 			$type = "SELECT privilege FROM ".DB_NAME.".login WHERE username='$loginNombre'";
  			
  			if($resultadotype = $mysqli->query($type)) {
 				while($row = $resultadotype->fetch_array()) {

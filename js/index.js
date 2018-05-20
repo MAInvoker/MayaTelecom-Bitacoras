@@ -68,6 +68,7 @@ function getBitacoraForm(){
         	$("#container_body").empty();
         	$("#container_body").append(data);
         	getCategoriesSelect();
+          getNodoSelect();
         	getClientPhoneNumbers();
         },
         error: function(data){
@@ -91,6 +92,23 @@ function getCategoriesSelect(){
           	
         },
     });	
+}
+
+function getNodoSelect(){
+  $.ajax(
+      {
+        url: "GetNodos.php",
+        type: "GET",
+        success: function(data){
+          //console.log(data);
+          $("#container_select_nodo").empty();
+          $("#container_select_nodo").append(data);
+
+        },
+        error: function(data){
+            
+        },
+    }); 
 }
 
 function getClientPhoneNumbers(){
@@ -183,6 +201,40 @@ function saveCategory(){
 	        className: 'maya_bootbox'
 	    });
 	}
+}
+
+function saveBitacora(){
+  if( $("#phone_client").val() != "" && $("#asunto").val() != "" && $("#resumen_text").val() != ""){
+    $.ajax(
+      {
+          url: "SaveBitacora.php",
+          data: $("#form_bit").serialize(),
+          type: "POST",
+          success: function(data){
+            console.log("valor devuelto: "+data);
+            $("#nombre").val("");
+            if(data == 1 ){
+              bootbox.alert({
+                message: "Categoría guardada satisfactoriamente",
+                className: 'maya_bootbox'
+            });
+            }else{
+              bootbox.alert({
+                message: "Error en el servidor, contacte al desarrollador",
+                className: 'maya_bootbox'
+            });
+            }
+          },
+          error: function(data){
+              
+          },
+      });
+  }else{
+    bootbox.alert({
+          message: "Llene todos los campos",
+          className: 'maya_bootbox'
+      });
+  }
 }
 
 function tryToDeleteCat(){

@@ -1,21 +1,35 @@
 <?php
 session_start();
 $user_name = $_SESSION['support_name'];
+
+require("conexion.php");
+$consulta = "SELECT * FROM ".DB_NAME.".bitacora ORDER BY name ASC";
+$data = array();
+	if($resultado = $mysqli->query($consulta)) {
+		while($row = $resultado->fetch_assoc()) {
+			$data[] = $row;
+		}
+		$resultado->close();
+	}
+
 ?>
 <div style="display: block;" class="maya_logbook_container">
-	<form autocomplete="off" class="autocomplete">
+	<form id="form_bit" autocomplete="off" class="autocomplete">
 		<div>
 			<strong>Soporte Técnico: <?php echo $user_name; ?></strong>	
 		</div>
 		<div>
 			<div style="display:inline-flex;">
 				<strong>Selecciona Nodo: </strong>
-				<select id="select_nodo" name="select_nodo">
+				<div id="container_select_nodo">
+					
+				</div>
+				<!--<select id="select_nodo" name="select_nodo">
 					<option id="optn-0">--Selecciona un Nodo--</option>
 					<option>opcion1</option>
 					<option>opcion1</option>
 					<option>opcion1</option>
-				</select>
+				</select>-->
 			</div>
 		</div>
 		<div>
@@ -42,8 +56,20 @@ $user_name = $_SESSION['support_name'];
 			</div>
 		</div>
 		<div>
+			<div id="asunto_">
+				<strong> Asunto: </strong>
+				  <div class="autocomplete" style="width:300px;">
+				    <input class="form-control" id="asunto" type="text" name="asunto" placeholder="Asunto del soporte">			    
+				  </div>
+			</div>
+		</div>
+		<div>
 			<strong>Resumen: </stron><br>
-			<textarea name="resumen_text"></textarea>
+			<textarea class="form-control" id="resumen_text" name="resumen_text"></textarea>
+		</div>
+
+		<div class="form-group">
+			<input style="margin-top: 20px;" type="button" class="maya_button w3-green" value="Guardar" onclick="saveBitacora();">
 		</div>
 	</form>
 </div>
