@@ -23,7 +23,8 @@
 .maya_table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 100%;
+  table-layout: fixed;
+  width: 80%;
   display: table;
   font-size: 13px;
   font-family: Helvetica;
@@ -35,6 +36,10 @@
 
 .maya_table input[type=checkbox]{
   margin-left: 10px;
+}
+
+.maya_table td{
+  padding-left: 5px;
 }
 
 .maya_button {

@@ -21,6 +21,26 @@ $( document ).ready(function() {
     getSessionType();    
 });
 
+function getBitacorasOverTime(){
+  //ponendo el titulo
+  $("#header_title").html('<i class="fa fa-dashboard"></i> Gestionar Bitácoras');
+
+  $.ajax(
+      {
+        url: "LogbookManager.php",
+        type: "GET",
+        success: function(data){
+          //console.log(data);
+          $("#container_body").empty();
+          $("#container_body").append(data);
+          
+        },
+        error: function(data){
+            
+        },
+  });
+}
+
 function getSessionType(){
 	$.ajax(
       {
