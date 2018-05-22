@@ -2,16 +2,6 @@
 session_start();
 $user_name = $_SESSION['support_name'];
 
-require("conexion.php");
-$consulta = "SELECT * FROM ".DB_NAME.".bitacora ORDER BY name ASC";
-$data = array();
-	if($resultado = $mysqli->query($consulta)) {
-		while($row = $resultado->fetch_assoc()) {
-			$data[] = $row;
-		}
-		$resultado->close();
-	}
-
 ?>
 <div style="display: block;" class="maya_logbook_container">
 	<form id="form_bit" autocomplete="off" class="autocomplete">
@@ -51,7 +41,7 @@ $data = array();
 				<strong> Teléfono del Cliente: </strong>
 				<!--Make sure the form has the autocomplete function switched off:-->
 				  <div class="autocomplete" style="width:300px;">
-				    <input class="autocomplete" id="phone_numbers_client" type="text" name="phone_client" placeholder="# del Cliente">			    
+				    <input class="autocomplete form-control" id="phone_numbers_client" type="text" name="phone_client" placeholder="# del Cliente">			    
 				  </div>
 			</div>
 		</div>

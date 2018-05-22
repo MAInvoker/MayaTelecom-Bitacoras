@@ -60,7 +60,8 @@ function getSessionType(){
 				//mostrando menu
 				$("#admin-menu").show();
 				console.log("admin "+json_response.response.type);
-                setHeaderName(json_response.response.user_name);
+        setHeaderName(json_response.response.user_name);
+        getBitacoraPage();
 			}
         },
         error: function(data){
@@ -92,6 +93,24 @@ function getBitacoraForm(){
         },
         error: function(data){
           	
+        },
+    });
+}
+
+function getBitacoraPage(){
+  $("#header_title").html('<i class="fa fa-dashboard"></i> Bitacoras del Soporte Técnico');
+
+  $.ajax(
+      {
+        url: "GetBitacoraPage.php",
+        type: "GET",
+        success: function(data){
+          //console.log(data);
+          $("#container_body").empty();
+          $("#container_body").append(data);         
+        },
+        error: function(data){
+            
         },
     });
 }
@@ -236,7 +255,7 @@ function saveBitacora(){
              $("#resumen_text").val("");
             if(data == 1 ){
               bootbox.alert({
-                message: "Categoría guardada satisfactoriamente",
+                message: "Reporte guardaoa satisfactoriamente",
                 className: 'maya_bootbox'
             });
             }else{

@@ -1,7 +1,7 @@
 <?php
 require("conexion.php");
 
-$consulta = "SELECT * FROM ".DB_NAME.".login ORDER BY nodo ASC";
+$consulta = "SELECT * FROM ".DB_NAME.".server ORDER BY nodo ASC";
 $data = array();
 	if($resultado = $mysqli->query($consulta)) {
 		?>

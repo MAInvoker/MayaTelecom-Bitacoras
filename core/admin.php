@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
-<title>W3.CSS Template</title>
+<title>Bitacoras</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/w3.css">
@@ -45,7 +45,7 @@ html,body,h1,h2,h3,h4,h5,strong,select {font-family: "Raleway", sans-serif}
     </div>
     <!-- Admin -->
     <div id="admin-menu" style="display: none;">
-        <a href="#" class="w3-bar-item w3-button w3-padding" ><i class="fa fa-history fa-fw"></i>  Ver Bitácoras del día</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding" onclick="getBitacoraPage();"><i class="fa fa-history fa-fw"></i>  Ver Bitácoras</a>
         <a href="#" class="w3-bar-item w3-button w3-padding" onclick="getBitacorasOverTime();"><i class="fa fa-calendar fa-fw"></i>  Gestionar Bitácoras</a>
         <a href="#" class="w3-bar-item w3-button w3-padding" onclick="getCategoriesPage();"><i class="fa fa-edit fa-fw"></i>  Categorías Soporte Técnico</a>
         <a href="salir.php" class="w3-bar-item w3-button w3-padding"><i class="fa fa-power-off fa-fw"></i>  Cerrar Sesión</a>
