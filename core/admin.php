@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="../ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/maya.css">
 <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/jsCalendar.css">
 <style>
 html,body,h1,h2,h3,h4,h5,strong,select {font-family: "Raleway", sans-serif}
 </style>
@@ -84,6 +85,9 @@ html,body,h1,h2,h3,h4,h5,strong,select {font-family: "Raleway", sans-serif}
 <script type="text/javascript" src="../js/index.js"></script>
 <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/bootbox.min.js"></script>
+<script type="text/javascript" src="../js/jsCalendar.js"></script>
+<script type="text/javascript" src="../js/jsCalendar.lang.es.js"></script>
+
 <script>
 // Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");

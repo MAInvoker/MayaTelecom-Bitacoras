@@ -1,8 +1,8 @@
 <?php
 require("conexion.php");
 
-$date1 = $_POST['date1'];
-$date2 = $_POST['date2'];
+//$date1 = $_POST['date1'];
+//$date2 = $_POST['date2'];
 
 $date1 = "2018-05-21";
 $date2 = "2018-05-22";

@@ -16,12 +16,72 @@
 
 /*****************************************************************************/
 
+/** Variables Globales **/
+var date_number_one = "";
+var date_number_two = "";
+
 $( document ).ready(function() {
     console.log( "ready!" );
     getSessionType();    
 });
 
+function getBothCalendarDates(){
+  alert("date1: "+date_number_one + " / " + "date2: "+date_number_two );
+}
+
+function setFirstCalendar(date){
+    $("#my-first-calendar").empty();
+    var month = date.getMonth() + 1;
+    var cal1 = document.getElementById("my-first-calendar");
+    jsCalendar.new(cal1,date.getDate()+"/"+month+"/"+date.getFullYear(),{
+      // language
+      language : "es",
+      navigator : true,
+    }).onDateClick(function(event, date){
+      // On day click
+        console.log("date: "+date);
+        date_number_one = date;
+        setFirstCalendar(date);
+    });
+}
+
+function setSecondCalendar(date){
+    $("#my-second-calendar").empty();
+    var month = date.getMonth() + 1;
+    var cal1 = document.getElementById("my-second-calendar");
+    jsCalendar.new(cal1,date.getDate()+"/"+month+"/"+date.getFullYear(),{
+      // language
+      language : "es",
+      navigator : true,
+    }).onDateClick(function(event, date){
+      // On day click
+        console.log("date: "+date);
+        date_number_two = date;
+        setSecondCalendar(date);
+    });
+}
+
 function getBitacorasOverTime(){
+  //ponendo el titulo
+  $("#header_title").html('<i class="fa fa-dashboard"></i> Gestionar Bitácoras');
+
+  $.ajax(
+      {
+        url: "LogbookManagerHandler.php",
+        type: "GET",
+        success: function(data){
+          //console.log(data);
+          $("#container_body").empty();
+          $("#container_body").append(data);
+          getBitacorasOverDates();
+        },
+        error: function(data){
+            
+        },
+  });
+}
+
+function getBitacorasOverDates(){
   //ponendo el titulo
   $("#header_title").html('<i class="fa fa-dashboard"></i> Gestionar Bitácoras');
 
@@ -31,8 +91,8 @@ function getBitacorasOverTime(){
         type: "GET",
         success: function(data){
           //console.log(data);
-          $("#container_body").empty();
-          $("#container_body").append(data);
+          $("#date-manager-body").empty();
+          $("#date-manager-body").append(data);
           
         },
         error: function(data){
