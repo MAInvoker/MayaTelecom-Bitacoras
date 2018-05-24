@@ -341,7 +341,7 @@ function saveBitacora(){
              $("#resumen_text").val("");
             if(data == 1 ){
               bootbox.alert({
-                message: "Reporte guardaoa satisfactoriamente",
+                message: "Reporte guardado satisfactoriamente",
                 className: 'maya_bootbox'
             });
             }else{

@@ -87,6 +87,7 @@ html,body,h1,h2,h3,h4,h5,strong,select {font-family: "Raleway", sans-serif}
 <script type="text/javascript" src="../js/bootbox.min.js"></script>
 <script type="text/javascript" src="../js/jsCalendar.js"></script>
 <script type="text/javascript" src="../js/jsCalendar.lang.es.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 
 <script>
 // Get the Sidebar
