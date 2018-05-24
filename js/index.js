@@ -26,13 +26,26 @@ $( document ).ready(function() {
 });
 
 function getBothCalendarDates(){
-  alert("date1: "+date_number_one + " / " + "date2: "+date_number_two );
+  //alert("date1: "+date_number_one + " / " + "date2: "+date_number_two );
+  var date1,date2,month_txt;
+  var month = date_number_one.getMonth() + 1;
+  /*if(month <= 9){
+    month_txt = '0'+month;
+  }*/
+  date1 = date_number_one.getFullYear()+"-"+month+"-"+date_number_one.getDate();
+  month = date_number_two.getMonth() + 1;
+  /*if(month <= 9){
+    month_txt = '0'+month;
+  }*/
+  date2 = date_number_two.getFullYear()+"-"+month+"-"+date_number_two.getDate(); 
+  getBitacorasOverDates(date1,date2);
 }
 
 function setFirstCalendar(date){
     $("#my-first-calendar").empty();
     var month = date.getMonth() + 1;
     var cal1 = document.getElementById("my-first-calendar");
+    date_number_one = date;
     jsCalendar.new(cal1,date.getDate()+"/"+month+"/"+date.getFullYear(),{
       // language
       language : "es",
@@ -49,6 +62,7 @@ function setSecondCalendar(date){
     $("#my-second-calendar").empty();
     var month = date.getMonth() + 1;
     var cal1 = document.getElementById("my-second-calendar");
+    date_number_two = date;
     jsCalendar.new(cal1,date.getDate()+"/"+month+"/"+date.getFullYear(),{
       // language
       language : "es",
@@ -73,7 +87,7 @@ function getBitacorasOverTime(){
           //console.log(data);
           $("#container_body").empty();
           $("#container_body").append(data);
-          getBitacorasOverDates();
+          
         },
         error: function(data){
             
@@ -81,22 +95,34 @@ function getBitacorasOverTime(){
   });
 }
 
-function getBitacorasOverDates(){
+function getBitacorasOverDates(date1,date2){
   //ponendo el titulo
   $("#header_title").html('<i class="fa fa-dashboard"></i> Gestionar Bitácoras');
-
+  $("#date1").val(date1);
+  $("#date2").val(date1);
   $.ajax(
       {
         url: "LogbookManager.php",
-        type: "GET",
+        type: "POST",
+        data: $("#filter-form").serialize(),
         success: function(data){
-          //console.log(data);
+          console.log(date1+" "+date2);
           $("#date-manager-body").empty();
-          $("#date-manager-body").append(data);
-          
+          $("#selected-filter").focus();
+          if(data != 0){
+            $("#date-manager-body").append(data);
+          }else{
+            bootbox.alert({
+                message: "No existen Bitácoras registradas con los parámetros proporcionados",
+                className: 'maya_bootbox'
+            });
+          }
         },
         error: function(data){
-            
+           bootbox.alert({
+                message: "Error en el servidor, contacte al desarrollador",
+                className: 'maya_bootbox'
+            });
         },
   });
 }

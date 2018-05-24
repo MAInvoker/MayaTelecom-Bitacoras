@@ -1,14 +1,24 @@
 <?php
 require("conexion.php");
 
-//$date1 = $_POST['date1'];
-//$date2 = $_POST['date2'];
+$date1 = $_POST['date1'];
+$date2 = $_POST['date2'];
 
-$date1 = "2018-05-21";
-$date2 = "2018-05-22";
+$consulta = "SELECT * FROM ".DB_NAME.".bitacoras WHERE fecha BETWEEN '".$date1."' AND '".$date2."' ";
+//echo $_POST['selected-filter'];
+if($_POST['selected-filter'] != "0"){
+	if($_POST['selected-filter'] == "nombre"){
+		$consulta.=" AND nombre LIKE '%".$_POST['filter-text']."%' ";
+	}
+	elseif ($_POST['selected-filter'] == "nodo") {
+		$consulta.=" AND nodo = '".$_POST['filter-text']."' ";
+	}
+	elseif ($_POST['selected-filter'] == "emisor") {
+		$consulta.=" AND emisor = '".$_POST['filter-text']."' ";
+	}
+}
 
-
-$consulta = "SELECT * FROM ".DB_NAME.".bitacoras WHERE fecha BETWEEN '".$date1."' AND '".$date2."' ORDER BY id ASC";
+$consulta.= " ORDER BY nombre,id ASC";
 //echo $consulta;
 $data = array();
 if($resultado = $mysqli->query($consulta)) {
@@ -18,6 +28,7 @@ if($resultado = $mysqli->query($consulta)) {
 	}
 	$resultado->close();
 }
+if(count($data) > 0){
 ?>
 <div id="cat_list_container" style="display: block;margin-left: 16px;" class="w3-panel">
 	<div>
@@ -45,3 +56,8 @@ if($resultado = $mysqli->query($consulta)) {
 		</table>
 	</div>
 </div>
+<?php
+}else{
+	echo 0;
+}
+?>
