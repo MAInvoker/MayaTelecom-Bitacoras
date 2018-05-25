@@ -99,7 +99,7 @@ function getBitacorasOverDates(date1,date2){
   //ponendo el titulo
   $("#header_title").html('<i class="fa fa-dashboard"></i> Gestionar Bitácoras');
   $("#date1").val(date1);
-  $("#date2").val(date1);
+  $("#date2").val(date2);
   $.ajax(
       {
         url: "LogbookManager.php",
