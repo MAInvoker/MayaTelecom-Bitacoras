@@ -105,15 +105,8 @@ function getBitacorasOverDates(){
         type: "GET",       
         success: function(data){
           $("#date-manager-body").empty();
-          $("#selected-filter").focus();
-          if(data != 0){
-            $("#date-manager-body").append(data);
-          }else{
-            bootbox.alert({
-                message: "No existen Bitácoras registradas con los parámetros proporcionados",
-                className: 'maya_bootbox'
-            });
-          }
+          $("#selected-filter").focus();          
+          $("#date-manager-body").append(data);          
         },
         error: function(data){
            bootbox.alert({
@@ -133,8 +126,16 @@ function getBitacorasOverDates2(date1,date2){
         url: "GetLogbookManager.php",
         type: "POST",
         data: $("#filter-form").serialize(),
-        success: function(data){          
+        success: function(data){ 
+        if(data != 0){         
           getBitacorasOverDates();
+        }else{
+          getBitacorasOverDates();
+            bootbox.alert({
+                message: "No existen Bitácoras registradas con los parámetros proporcionados",
+                className: 'maya_bootbox'
+            });
+          }
         },
         error: function(data){
            bootbox.alert({
@@ -605,3 +606,7 @@ function autocomplete(inp, arr) {
   });
 }
 /********************************************************************************/
+ function pulsar(e) { 
+  tecla = (document.all) ? e.keyCode :e.which; 
+  return (tecla!=13); 
+}

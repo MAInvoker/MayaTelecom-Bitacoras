@@ -14,7 +14,7 @@
 			</select><br>
 			<input type="hidden" name="date1" id="date1">
 			<input type="hidden" name="date2" id="date2">
-			<input id="filter-text" type="text" name="filter-text" style="width: 400px;margin-top: 10px;" placeholder="Ingrese parámetro de búsqueda">
+			<input id="filter-text" type="text" name="filter-text" style="width: 400px;margin-top: 10px;" placeholder="Ingrese parámetro de búsqueda" onkeypress="return pulsar(event)">
 		</form>
 	</div>
 	<div style="position: absolute;margin-left: 20%;margin-top: 20px;">

@@ -1,10 +1,11 @@
 <?php
+session_start();
 require("conexion.php");
 
 $date1 = $_POST['date1'];
 $date2 = $_POST['date2'];
 
-$consulta = "SELECT * FROM ".DB_NAME.".bitacoras WHERE fecha BETWEEN '".$date1."' AND '".$date2."' ";
+$consulta = "SELECT * FROM ".DB_NAME.".bitacoras WHERE fecha BETWEEN '".$date1."' AND '".$date2."'";
 //echo $_POST['selected-filter'];
 if($_POST['selected-filter'] != "0"){
 	if($_POST['selected-filter'] == "nombre"){
@@ -30,8 +31,11 @@ if($resultado = $mysqli->query($consulta)) {
 }
 if(count($data) > 0){
 	$response = array("data" => $data);
+	$_SESSION["json"] = $response;
 	echo json_encode($response);
 }else{
 	echo 0;
+	$response = array("data" => "");
+	$_SESSION["json"]=$response;
 }
 ?>

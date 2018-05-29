@@ -20,7 +20,7 @@
      $(document).ready(function () {
 
          var table = $('#example2').DataTable({
-             "ajax": "GetLogbookManager.php",
+             "ajax": "GetJsonLogbookManager.php",
              select:"single",
               "language": 
               {
@@ -42,7 +42,7 @@
                  { "data": "asunto" },
                  { "data": "fecha" }
              ],
-             "order": [[1, 'asc']]
+             "order": [[4, 'asc']]
          });
 
          // Add event listener for opening and closing details
