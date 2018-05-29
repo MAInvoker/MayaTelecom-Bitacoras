@@ -97,11 +97,16 @@
   color: #ffffff; 
 }
 td.details-control {
+    
     text-align:center;
-    color:forestgreen;
+    color:green;
     cursor: pointer;
 }
 tr.shown td.details-control {
     text-align:center; 
     color:red;
+}
+#table-data{
+  text-align: center;
+  font-size: 15px;
 }

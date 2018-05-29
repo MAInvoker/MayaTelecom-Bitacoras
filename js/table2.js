@@ -19,8 +19,8 @@
 
      $(document).ready(function () {
 
-         var table = $('#example').DataTable({
-             "ajax": "GetBitacoraData.php",
+         var table = $('#example2').DataTable({
+             "ajax": "GetLogbookManager.php",
              select:"single",
               "language": 
               {
@@ -46,7 +46,7 @@
          });
 
          // Add event listener for opening and closing details
-         $('#example tbody').on('click', 'td.details-control', function () {
+         $('#example2 tbody').on('click', 'td.details-control', function () {
              var tr = $(this).closest('tr');
              var tdi = tr.find("i.glyphicon");
              var row = table.row(tr);

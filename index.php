@@ -1,5 +1,4 @@
 <?php
- 
 if(isset($_GET["error"]) && $_GET["error"] != "login") {
 		header("Location: index.php");
 	}
@@ -43,19 +42,19 @@ if(isset($_GET["error"]) && $_GET["error"] != "login") {
 				
 				<form action="core/login.php" method="POST" class="login100-form validate-form p-b-33 p-t-5">
 
-					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+					<div class="wrap-input100 validate-input" data-validate = "campo requerido">
 						<input class="input100" type="text" name="usuario" placeholder="Usuario">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
+					<div class="wrap-input100 validate-input" data-validate="campo requerido">
 						<input class="input100" type="password" name="password" placeholder="Contraseña">
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
 
 					<div class="container-login100-form-btn m-t-32">
 						<button type="submit" name="enviar" class="login100-form-btn">
-							Login
+							Iniciar sesion
 						</button>
 						<?php if(isset($_GET["error"])) {
 						 echo "<p class='error'>Usuario y / o Contraseña erroneos. Intentelo de nuevo.</p>";

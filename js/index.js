@@ -38,7 +38,7 @@ function getBothCalendarDates(){
     month_txt = '0'+month;
   }*/
   date2 = date_number_two.getFullYear()+"-"+month+"-"+date_number_two.getDate(); 
-  getBitacorasOverDates(date1,date2);
+  getBitacorasOverDates2(date1,date2);
 }
 
 function setFirstCalendar(date){
@@ -95,18 +95,15 @@ function getBitacorasOverTime(){
   });
 }
 
-function getBitacorasOverDates(date1,date2){
+function getBitacorasOverDates(){
   //ponendo el titulo
   $("#header_title").html('<i class="fa fa-dashboard"></i> Gestionar Bitácoras');
-  $("#date1").val(date1);
-  $("#date2").val(date2);
+ 
   $.ajax(
       {
         url: "LogbookManager.php",
-        type: "POST",
-        data: $("#filter-form").serialize(),
+        type: "GET",       
         success: function(data){
-          console.log(date1+" "+date2);
           $("#date-manager-body").empty();
           $("#selected-filter").focus();
           if(data != 0){
@@ -117,6 +114,27 @@ function getBitacorasOverDates(date1,date2){
                 className: 'maya_bootbox'
             });
           }
+        },
+        error: function(data){
+           bootbox.alert({
+                message: "Error en el servidor, contacte al desarrollador",
+                className: 'maya_bootbox'
+            });
+        },
+  });
+}
+
+function getBitacorasOverDates2(date1,date2){
+  //ponendo el titulo
+  $("#date1").val(date1);
+  $("#date2").val(date2);
+  $.ajax(
+      {
+        url: "GetLogbookManager.php",
+        type: "POST",
+        data: $("#filter-form").serialize(),
+        success: function(data){          
+          getBitacorasOverDates();
         },
         error: function(data){
            bootbox.alert({

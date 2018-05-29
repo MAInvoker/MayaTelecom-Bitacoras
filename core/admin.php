@@ -14,9 +14,7 @@
 <link rel="stylesheet" href="../css/maya.css">
 <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/jsCalendar.css">
-<style>
-html,body,h1,h2,h3,h4,h5,strong,select {font-family: "Raleway", sans-serif}
-</style>
+
 <body class="w3-light-grey">
 
 <!-- Top container -->
