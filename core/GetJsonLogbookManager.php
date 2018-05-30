@@ -1,5 +1,4 @@
 <?php 
-session_start();
-echo json_encode($_SESSION["json"]);
-
- ?>
+	session_start();
+	echo json_encode($_SESSION["json"]);
+?>

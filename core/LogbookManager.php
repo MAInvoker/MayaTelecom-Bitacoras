@@ -1,3 +1,4 @@
+
 <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
 
 <div id="cat_list_container" style="display: block;margin-left: 16px;" class="w3-panel">

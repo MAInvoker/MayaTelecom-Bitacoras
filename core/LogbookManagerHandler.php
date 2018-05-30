@@ -1,7 +1,4 @@
-<?php
 
-
-?>
 <div class="w3-panel w3-row-padding" >
 	<div>
 		<form id="filter-form">
